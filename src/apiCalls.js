@@ -7,14 +7,6 @@ export const fetchTides = (startDate, endDate, station) => {
     .then((response) => response.text())
     .then((data) => {
       let xml = new XMLParser().parseFromString(data);
-
-      let tides = xml.children.map((child) => {
-        return {
-          time: child.attributes.t,
-          height: child.attributes.v,
-          type: child.attributes.type,
-        };
-      })
-      return tides
+      return xml
     })
 };

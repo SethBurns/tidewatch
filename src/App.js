@@ -5,19 +5,30 @@ import { useEffect, useState } from 'react';
 import { fetchTides } from './apiCalls';
 
 function App() {
-
-  const [tides, setTides] = useState([])
+  const [tides, setTides] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    setTides(fetchTides("20230801", "20230831", "9445388"))
-    console.log(tides)
-  }, [])
-
-  // const renderedTides = tides.map(tide => )
+    fetchTides('20230801', '20230831', '9445388')
+      .then((data) => {
+        let fetchedTides = data.children.map((tide) => {
+          return {
+            height: tide.attributes.v,
+            type: tide.attributes.type,
+            time: tide.attributes.t,
+          };
+        });
+        setTides(fetchedTides);
+      })
+      .catch((error) => {
+        setError(`Something went wrong: ${error.message}`);
+        console.log(error)
+      });
+  }, []);
 
   return (
     <div className="App">
-      <Location />
+      <Location tides={tides} />
     </div>
   );
 }
