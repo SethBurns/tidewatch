@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { Location } from './components/Location/Location';
+import React from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
+import { fetchTides } from './apiCalls';
 
 function App() {
+
+  const [tides, setTides] = useState([])
+
+  useEffect(() => {
+    setTides(fetchTides("20230801", "20230831", "9445388"))
+    console.log(tides)
+  }, [])
+
+  // const renderedTides = tides.map(tide => )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Location />
     </div>
   );
 }
