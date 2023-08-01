@@ -14,9 +14,9 @@ export const SearchSelect = () => {
   const filteredResults = Object.keys(locations).map(area => {
     return locations[area].filter((place) => place.name.toLowerCase().includes(searchLocation.toLowerCase())).map((location) => {
       return (
-        <div className='location-card' key={[location.latitude, location.longitude]}>
+        <button className='location-button' key={[location.latitude, location.longitude]}>
           <p>{location.name}</p>
-        </div>
+        </button>
       )
     })
   })
@@ -32,7 +32,7 @@ export const SearchSelect = () => {
           onChange={(e) => setSearchLocation(e.target.value)}
         ></input>
       </form>
-      <ul>{filteredResults}</ul>
+      <ul className='location-buttons'>{filteredResults}</ul>
     </div>
   );
 };
