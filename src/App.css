@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  font-family: 'Prompt', sans-serif;
+  background-image: url('./images/sunsetdiveflag.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0px;
 }
 
 .App-logo {

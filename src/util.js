@@ -1,3 +1,6 @@
+import { locations } from "./components/stationData";
+
+
 function formatDate(inputDate) {
   const dateObj = new Date(inputDate);
 
@@ -77,4 +80,24 @@ export const extendTideType = (type) => {
   } else {
     return "Low"
   }
+}
+
+export function addDaysToDate(dateString, daysToAdd) {
+  const date = new Date(dateString); // Convert the date string to a Date object
+  date.setDate(date.getDate() + daysToAdd); // Add 30 days
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so we add 1
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export function findNameByStation(station) {
+  for (const key in locations) {
+    const locationArray = locations[key];
+    const foundLocation = locationArray.find(item => item.station === station);
+    if (foundLocation) {
+      return foundLocation
+    }
+  }
+  return null;
 }
