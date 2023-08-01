@@ -1,13 +1,40 @@
 import './Location.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   mutateDate,
   convertDecimalToFeetAndInches,
   extendTideType,
 } from '../../util';
-import { locations } from '../stationData';
+import { useEffect } from 'react';
+import { fetchTides } from '../../apiCalls';
 
-export const Location = ({ tides }) => {
+
+export const Location = () => {
+
+  const [error, setError] = useState('')
+  const [tides, setTides] = useState([])
+
+
+ useEffect(() => {
+    setError('')
+    fetchTides(20230801, 20230831, 9445388)
+      .then((data) => {
+        let fetchedTides = data.predictions.map((tide) => {
+          return {
+            height: tide.v,
+            type: tide.type,
+            time: tide.t,
+          };
+        });
+        setTides(fetchedTides);
+      })
+      .catch((error) => {
+        setError(`Something went wrong: ${error.message}`);
+        console.log(error)
+      });
+  }, []);
+
+
   const renderedTides = tides.map((tide) => {
     return (
       <tr className="tide-entry" key={tide.time}>
