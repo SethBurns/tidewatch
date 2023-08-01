@@ -1,0 +1,23 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+th {
+  font-size: 40px;
+}
+
+td {
+  font-size: 35px;
+  border-style: solid;
+  border-color: rgb(117, 117, 117);
+}
+
+th {
+  background-color: rgb(163, 24, 24);
+}
+
+tr:nth-child(odd) {
+  background-color: aqua;
+}

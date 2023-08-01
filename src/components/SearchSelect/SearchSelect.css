@@ -1,55 +1,74 @@
 .location-buttons {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+li {
+  list-style: none;
+  height: 90px;
+}
+
+.search-input,
+.date-input {
+  font-size: xx-large;
+  height: 50px;
+  margin: 10px;
 }
 
 .location-button {
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  width: 90%;
   font-family: 'Prompt', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  cursor:pointer;
-  position:relative;
-  padding:10px 20px;
-  background:white;
-  font-size:28px;
-  border-top-right-radius:10px;
-  border-bottom-left-radius:10px;
-  transition:all 1s;
-  &:after,&:before{
-    content:" ";
-    width:10px;
-    height:10px;
-    position:absolute;
-    border :0px solid #fff;
-    transition:all 1s;
-    }
-  &:after{
-    top:-1px;
-    left:-1px;
-    border-top:5px solid black;
-    border-left:5px solid black;
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  margin:2px; 
+  font-size: 38px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-style: outset;
+  transition: all 1s;
+  &:after,
+  &:before {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff;
+    transition: all 1s;
   }
-  &:before{
-    bottom:-1px;
-    right:-1px;
-    border-bottom:5px solid black;
-    border-right:5px solid black;
+  &:after {
+    top: -1px;
+    left: -1px;
+    border-top: 5px solid black;
+    border-left: 5px solid black;
   }
-  &:hover{
-    border-top-right-radius:0px;
-  border-bottom-left-radius:0px;
-  /* background:rgba(0,0,0,.5);
-  color:white; */
-    &:before,&:after{
-      
-      width:100%;
-      height:100%;
-      /*border-color:white; */
+  &:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+  }
+  &:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    transform: scale(1.05);
+    &:before,
+    &:after {
+      width: 100%;
+      height: 100%;
     }
   }
 }
 
+.location-button:nth-child(odd) {
+  background-color: rgb(102, 30, 30);
+}
 
-.location-button:hover {
-
+.location-button:nth-child(even) {
+  background-color: rgb(32, 0, 128);
 }
