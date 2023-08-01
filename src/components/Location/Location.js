@@ -5,15 +5,19 @@ import {
   convertDecimalToFeetAndInches,
   extendTideType,
   addDaysToDate,
+  findNameByStation,
 } from '../../util';
 import { useEffect } from 'react';
 import { fetchTides } from '../../apiCalls';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-export const Location = ({ location, setError }) => {
+export const Location = ({ setError }) => {
   const { station } = useParams();
   const [searchParams] = useSearchParams();
-  const startDate = searchParams.get('date').replaceAll('-', '');
+  const startDate = addDaysToDate(searchParams.get('date'), 2).replaceAll(
+    '-',
+    ''
+  );
   const endDate = addDaysToDate(searchParams.get('date'), 30).replaceAll(
     '-',
     ''
@@ -50,6 +54,8 @@ export const Location = ({ location, setError }) => {
       </tr>
     );
   });
+
+  let location = findNameByStation(station);
 
   return (
     <main className={`${location.station} main-page`}>

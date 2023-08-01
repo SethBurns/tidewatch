@@ -1,22 +1,21 @@
-// import { Location } from './components/Location/Location';
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
-// import { fetchTides } from './apiCalls';
-import { SearchSelect } from './components/SearchSelect/SeachSelect';
+import { SearchSelect } from './components/SearchSelect/SearchSelect';
 import { Location } from './components/Location/Location';
 import { Routes, Route } from 'react-router-dom';
+import { Saved } from './components/Location/Saved/Saved';
 
 function App() {
   const [error, setError] = useState(undefined);
-  const [location, setLocation] = useState({})
 
   return (
     <div className="App">
       <h1>tideWAtch</h1>
       <Routes>
-        <Route path='/' element={<SearchSelect setLocation={setLocation} />}/>
-        <Route path='/:station' element={!error && <Location location={location} setError={setError} />}/>
+        <Route path='/' element={<SearchSelect />}/>
+        <Route path='/saved' element={<Saved />}/>
+        <Route path='/:station' element={!error && <Location setError={setError} />}/>
       </Routes>
     </div>
   );

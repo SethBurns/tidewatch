@@ -19,5 +19,10 @@ th {
 }
 
 tr:nth-child(odd) {
-  background-color: aqua;
+  background-color: rgba(0, 255, 255, 0.669);
 }
+
+tr:nth-child(even) {
+  background-color: rgba(151, 169, 250, 0.668);
+}
+
