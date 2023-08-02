@@ -4,6 +4,11 @@
   width: 100vw;
   height: 80vh;
   overflow-y: scroll;
+  justify-content: space-between;
+}
+
+ul {
+  padding-inline-start: 0px;
 }
 
 li {
@@ -18,19 +23,19 @@ li {
   margin: 10px;
 }
 
-.buttons-container {
+.button-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .location-button {
-  margin: 10px;
   background: white;
   border: solid 2px black;
-  padding: .375em 1.125em;
+  padding: 1vh 2vw;
 
-  font-size: 2rem;
+  font-size: 2vw;
   background: hsl(190deg, 30%, 15%);
   color: hsl(0, 14%, 90%);
   
@@ -57,6 +62,8 @@ li {
 
 .location-button:hover,
 .location-buttonfocus {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
   box-shadow: 0 4px 8px hsla(190deg, 15%, 5%, .2);
   transform: translateY(-4px);
   background: hsla(230, 50%, 45%, 0);
@@ -71,4 +78,10 @@ a { text-decoration: none; }
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 650px) {
+  .location-button {
+    font-size: 3.5vh;
+  }
 }

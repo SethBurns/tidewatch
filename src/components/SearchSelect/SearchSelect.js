@@ -4,7 +4,7 @@ import { locations } from '../stationData';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const SearchSelect = ({ setLocation }) => {
+export const SearchSelect = ({}) => {
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10);
   const [searchLocation, setSearchLocation] = useState('');
@@ -17,7 +17,7 @@ export const SearchSelect = ({ setLocation }) => {
       )
       .map((location) => {
         return (
-          <li className="buttons-container" key={location.station}>
+          <li className="button-container" key={location.station}>
             <Link
               className="location-button"
               to={`/${location.station}?date=${dateSelect}`}
@@ -32,7 +32,7 @@ export const SearchSelect = ({ setLocation }) => {
   return (
     <div className='main-display'>
       <form className="search-form">
-        <label className="hidden" for="searchInput">
+        <label className="hidden" htmlFor="searchInput">
           Search by name
         </label>
         <input
@@ -43,7 +43,7 @@ export const SearchSelect = ({ setLocation }) => {
           value={searchLocation}
           onChange={(e) => setSearchLocation(e.target.value)}
         ></input>
-        <label className="hidden" for="dateInput">
+        <label className="hidden" htmlFor="dateInput">
           Date:
         </label>
         <input

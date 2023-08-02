@@ -26,3 +26,14 @@ tr:nth-child(even) {
   background-color: rgba(151, 169, 250, 0.668);
 }
 
+.favorite-tide {
+  height: 45px;
+  width: 45px;
+  background-color: transparent;
+  background-image: url('../../images/favorited.png');
+  border: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+

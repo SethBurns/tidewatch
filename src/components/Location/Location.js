@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { fetchTides } from '../../apiCalls';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-export const Location = ({ setError }) => {
+export const Location = ({ savedTides, setSavedTides, setError }) => {
   const { station } = useParams();
   const [searchParams] = useSearchParams();
   const startDate = addDaysToDate(searchParams.get('date'), 2).replaceAll(
@@ -43,6 +43,15 @@ export const Location = ({ setError }) => {
       });
   }, []);
 
+  const handleClick = (e, tide) => {
+    e.preventDefault();
+    
+
+    setSavedTides([...savedTides, tide]);
+
+    console.log(savedTides)
+  };
+
   const renderedTides = tides.map((tide) => {
     return (
       <tr className="tide-entry" key={tide.time}>
@@ -50,6 +59,12 @@ export const Location = ({ setError }) => {
         <td className="tide-height">
           {extendTideType(tide.type)}:{' '}
           {convertDecimalToFeetAndInches(tide.height)}
+        </td>
+        <td className="center">
+          <button
+            onClick={(e) => handleClick(e, tide)}
+            className={tide.saved ? 'favorite-tide favorited' : 'favorite-tide'}
+          ></button>
         </td>
       </tr>
     );
@@ -65,6 +80,7 @@ export const Location = ({ setError }) => {
           <tr>
             <th>DATE & TIME</th>
             <th>TIDE</th>
+            <th>FAVORITE?</th>
           </tr>
         </thead>
         <tbody>{renderedTides}</tbody>

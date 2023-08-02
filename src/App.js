@@ -4,10 +4,11 @@ import { useState } from 'react';
 import { SearchSelect } from './components/SearchSelect/SearchSelect';
 import { Location } from './components/Location/Location';
 import { Routes, Route } from 'react-router-dom';
-import { Saved } from './components/Location/Saved/Saved';
+import { Saved } from './components/Saved/Saved';
 
 function App() {
   const [error, setError] = useState(undefined);
+  const [savedTides, setSavedTides] = useState([])
 
   return (
     <div className="App">
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<SearchSelect />}/>
         <Route path='/saved' element={<Saved />}/>
-        <Route path='/:station' element={!error && <Location setError={setError} />}/>
+        <Route path='/:station' element={!error && <Location savedTides={savedTides} setSavedTides={setSavedTides} setError={setError} />}/>
       </Routes>
     </div>
   );
