@@ -1,5 +1,4 @@
-import { locations } from "./components/stationData";
-
+import { locations } from './components/stationData';
 
 function formatDate(inputDate) {
   const dateObj = new Date(inputDate);
@@ -39,7 +38,6 @@ function formatDate(inputDate) {
 function formatTime(inputTime) {
   const [hours, minutes] = inputTime.split(':');
 
-  
   const dummyDate = new Date();
   dummyDate.setHours(parseInt(hours));
   dummyDate.setMinutes(parseInt(minutes));
@@ -54,11 +52,11 @@ function formatTime(inputTime) {
 }
 
 export const mutateDate = (date) => {
-  let d = date.split(" ")
-  let day = formatDate(d[0])
-  let time = formatTime(d[1])
-  return `${day} at ${time}`
-}
+  let d = date.split(' ');
+  let day = formatDate(d[0]);
+  let time = formatTime(d[1]);
+  return `${day} at ${time}`;
+};
 
 export const convertDecimalToFeetAndInches = (decimalHeight) => {
   const totalInches = Math.round(decimalHeight * 12);
@@ -72,15 +70,15 @@ export const convertDecimalToFeetAndInches = (decimalHeight) => {
   } else {
     return `${feet} foot`;
   }
-}
+};
 
 export const extendTideType = (type) => {
-  if (type === "H") {
-    return "High"
+  if (type === 'H') {
+    return 'High';
   } else {
-    return "Low"
+    return 'Low';
   }
-}
+};
 
 export function addDaysToDate(dateString, daysToAdd) {
   const date = new Date(dateString); // Convert the date string to a Date object
@@ -94,10 +92,12 @@ export function addDaysToDate(dateString, daysToAdd) {
 export function findNameByStation(station) {
   for (const key in locations) {
     const locationArray = locations[key];
-    const foundLocation = locationArray.find(item => item.station === station);
+    const foundLocation = locationArray.find(
+      (item) => item.station === station
+    );
     if (foundLocation) {
-      return foundLocation
+      return foundLocation;
     }
   }
-  return null;
+  return 'If you are going to type in your own custom URL, you better be sure you know what you are doing. Oh... I mean... ERROR! Station does not exist!';
 }

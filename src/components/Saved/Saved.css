@@ -1,0 +1,12 @@
+.saved-tides-page {
+  height: 100vh;
+}
+
+td {
+  font-size: 20px;
+}
+
+table {
+  width: 100vw;
+  height: auto;
+}
