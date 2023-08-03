@@ -23,6 +23,20 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
     ''
   );
   const [tides, setTides] = useState([]);
+  const [saveMessage, setSaveMessage] = useState('');
+  const [displaySavedResponse, setDisplaySavedResponse] = useState(false);
+
+  const checkLocation = () => {
+    let result = findNameByStation(station);
+    if (typeof result === 'string') {
+      setError(result);
+      return;
+    } else {
+      return result;
+    }
+  };
+
+  let location = checkLocation();
 
   useEffect(() => {
     setError('');
@@ -38,18 +52,36 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
         setTides(fetchedTides);
       })
       .catch((error) => {
-        setError(`Something went wrong: ${error.message}`);
+        setError(`Something went wrong during fetch: ${error.message}`);
         console.log(error);
       });
   }, []);
 
-  const handleClick = (e, tide) => {
+  useEffect(() => {
+    if (displaySavedResponse) {
+      setTimeout(() => {
+        setDisplaySavedResponse(false);
+      }, 5000);
+    }
+  }, [displaySavedResponse]);
+
+  const handleClick = (e, tide, location) => {
     e.preventDefault();
-    
-
-    setSavedTides([...savedTides, tide]);
-
-    console.log(savedTides)
+    let newSavedTide = {
+      tide,
+      location,
+    };
+    if (
+      savedTides.map((tide) => tide.tide.time).includes(newSavedTide.tide.time)
+    ) {
+      setSaveMessage(`You have saved this tide already.`);
+      setDisplaySavedResponse(true);
+      return;
+    } else {
+      setSavedTides([...savedTides, newSavedTide]);
+      setSaveMessage(`Saved!`);
+      setDisplaySavedResponse(true);
+    }
   };
 
   const renderedTides = tides.map((tide) => {
@@ -62,25 +94,32 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
         </td>
         <td className="center">
           <button
-            onClick={(e) => handleClick(e, tide)}
-            className={tide.saved ? 'favorite-tide favorited' : 'favorite-tide'}
+            onClick={(e) => handleClick(e, tide, location)}
+            className="tide-save"
           ></button>
         </td>
       </tr>
     );
   });
 
-  let location = findNameByStation(station);
-
   return (
     <main className={`${location.station} main-page`}>
       <h1>{location.name}</h1>
+        <h2
+          className={
+            displaySavedResponse
+              ? 'save-display saved-confirmation'
+              : 'saved-confirmation hidden'
+          }
+        >
+          {saveMessage}
+        </h2>
       <table className="tide-table">
         <thead>
           <tr>
             <th>DATE & TIME</th>
             <th>TIDE</th>
-            <th>FAVORITE?</th>
+            <th>SAVE?</th>
           </tr>
         </thead>
         <tbody>{renderedTides}</tbody>

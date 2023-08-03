@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
 }
 
 th {
@@ -26,7 +28,7 @@ tr:nth-child(even) {
   background-color: rgba(151, 169, 250, 0.668);
 }
 
-.favorite-tide {
+.tide-save {
   height: 45px;
   width: 45px;
   background-color: transparent;
@@ -35,5 +37,50 @@ tr:nth-child(even) {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.saved-confirmation {
+  width: auto;
+  padding: 3px 10px;
+  background-color: goldenrod;
+  position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        font-size: large;
+}
+
+.saved-message-holder {
+  height: 5vh;
+}
+
+.save-display {
+  animation:display-message 5s ease-in-out;
+}
+
+@keyframes display-message {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.hidden {
+  display: none;
 }
 
