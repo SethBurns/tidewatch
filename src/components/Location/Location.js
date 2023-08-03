@@ -13,12 +13,12 @@ import { useParams, useSearchParams } from 'react-router-dom';
 
 export const Location = ({ savedTides, setSavedTides, setError }) => {
   const { station } = useParams();
-  const [searchParams] = useSearchParams();
-  const startDate = addDaysToDate(searchParams.get('date'), 2).replaceAll(
+  const [date] = useSearchParams();
+  const startDate = addDaysToDate(date.get('date'), 2).replaceAll(
     '-',
     ''
   );
-  const endDate = addDaysToDate(searchParams.get('date'), 30).replaceAll(
+  const endDate = addDaysToDate(date.get('date'), 30).replaceAll(
     '-',
     ''
   );

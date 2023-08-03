@@ -10,3 +10,7 @@ table {
   width: 100vw;
   height: auto;
 }
+
+.delete-tide:hover {
+  cursor: pointer;
+}

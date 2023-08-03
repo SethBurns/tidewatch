@@ -39,6 +39,10 @@ tr:nth-child(even) {
   background-size: contain;
 }
 
+.tide-save:hover {
+  filter: invert(100);
+}
+
 .saved-confirmation {
   width: auto;
   padding: 3px 10px;
@@ -73,9 +77,6 @@ tr:nth-child(even) {
 }
 
 .center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   align-content: center;
 }

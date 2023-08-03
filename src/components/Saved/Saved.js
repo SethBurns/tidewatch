@@ -8,6 +8,12 @@ import {
 
 export const Saved = ({ savedTides, setSavedTides }) => {
 
+
+  const handleDelete = (e, tidetime) => {
+    e.preventDefault()
+    setSavedTides(savedTides.filter(tide => tide.tide.time !== tidetime))
+  }
+
   const renderSavedTides = savedTides.map((tide) => {
     return (
       <tr className="tide-entry" key={tide.tide.time}>
@@ -17,6 +23,7 @@ export const Saved = ({ savedTides, setSavedTides }) => {
           {extendTideType(tide.tide.type)}:{' '}
           {convertDecimalToFeetAndInches(tide.tide.height)}
         </td>
+        <td className="delete-tide" onClick={(e) => {handleDelete(e, tide.tide.time)}}>🗑️</td>
       </tr>
     );
   });
@@ -30,6 +37,7 @@ export const Saved = ({ savedTides, setSavedTides }) => {
             <th>LOCATION</th>
             <th>DATE & TIME</th>
             <th>TIDE</th>
+            <th>🗑️</th>
           </tr>
         </thead>
         <tbody>{renderSavedTides}</tbody>
