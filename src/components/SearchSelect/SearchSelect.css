@@ -62,8 +62,8 @@ li {
 
 .location-button:hover,
 .location-buttonfocus {
-  -webkit-text-stroke: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke: 1.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
   box-shadow: 0 4px 8px hsla(190deg, 15%, 5%, .2);
   transform: translateY(-4px);
   background: hsla(230, 50%, 45%, 0);

@@ -23,7 +23,7 @@ export const Saved = ({ savedTides, setSavedTides }) => {
           {extendTideType(tide.tide.type)}:{' '}
           {convertDecimalToFeetAndInches(tide.tide.height)}
         </td>
-        <td className="delete-tide" onClick={(e) => {handleDelete(e, tide.tide.time)}}>🗑️</td>
+        <td className="tide-delete" onClick={(e) => {handleDelete(e, tide.tide.time)}}>🗑️</td>
       </tr>
     );
   });
@@ -31,17 +31,18 @@ export const Saved = ({ savedTides, setSavedTides }) => {
   return (
     <main className="saved-tides-page">
       <h1>SAVED TIDES</h1>
-      <table className="saved-tides-table">
+      {!savedTides.length && <h1 className='no-tides'>You have no saved tides!</h1>}
+      {savedTides.length > 0 && <table className="saved-tides-table">
         <thead>
           <tr>
-            <th>LOCATION</th>
-            <th>DATE & TIME</th>
-            <th>TIDE</th>
-            <th>🗑️</th>
+            <th className="tide-location">LOCATION</th>
+            <th className="tide-time">DATE & TIME</th>
+            <th className="tide-height">TIDE</th>
+            <th className="tide-delete">🗑️</th>
           </tr>
         </thead>
         <tbody>{renderSavedTides}</tbody>
-      </table>
+      </table>}
     </main>
   );
 };

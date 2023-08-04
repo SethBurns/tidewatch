@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { fetchTides } from '../../apiCalls';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-export const Location = ({ savedTides, setSavedTides, setError }) => {
+export const Location = ({ savedTides, setSavedTides, setError, setServerDown }) => {
   const { station } = useParams();
   const [date] = useSearchParams();
   const startDate = addDaysToDate(date.get('date'), 2).replaceAll(
@@ -53,6 +53,7 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
       })
       .catch((error) => {
         setError(`Something went wrong during fetch: ${error.message}`);
+        setServerDown(true)
         console.log(error);
       });
   }, []);
@@ -95,7 +96,7 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
         <td className="center">
           <button
             onClick={(e) => handleClick(e, tide, location)}
-            className="tide-save"
+            className="tide-save-l"
           ></button>
         </td>
       </tr>
@@ -117,9 +118,9 @@ export const Location = ({ savedTides, setSavedTides, setError }) => {
       <table className="tide-table">
         <thead>
           <tr>
-            <th>DATE & TIME</th>
-            <th>TIDE</th>
-            <th>SAVE?</th>
+            <th className="tide-time-l">DATE & TIME</th>
+            <th className="tide-height-l">TIDE</th>
+            <th className="tide-save-head">SAVE?</th>
           </tr>
         </thead>
         <tbody>{renderedTides}</tbody>

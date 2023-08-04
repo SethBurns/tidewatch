@@ -2,6 +2,27 @@
   height: 100vh;
 }
 
+.saved-tides-table {
+  display: block;
+  width: 100vw;
+}
+
+.tide-location {
+  width: 40vw;
+}
+
+.tide-time {
+  width: 30vw;
+}
+
+.tide-height {
+  width: 20vw;
+}
+
+.tide-delete {
+  width: 10vw;
+}
+
 td {
   font-size: 20px;
 }
@@ -13,4 +34,10 @@ table {
 
 .delete-tide:hover {
   cursor: pointer;
+}
+
+.no-tides {
+  color: rgb(148, 1, 1);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
 }

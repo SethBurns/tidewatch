@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: 0px 20px;
+}
+
+.tide-table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 th {
@@ -28,7 +33,7 @@ tr:nth-child(even) {
   background-color: rgba(151, 169, 250, 0.668);
 }
 
-.tide-save {
+.tide-save-l {
   height: 45px;
   width: 45px;
   background-color: transparent;
@@ -39,7 +44,7 @@ tr:nth-child(even) {
   background-size: contain;
 }
 
-.tide-save:hover {
+.tide-save-l:hover {
   filter: invert(100);
 }
 
@@ -85,3 +90,18 @@ tr:nth-child(even) {
   display: none;
 }
 
+.tide-time-l {
+  width: 45vw;
+}
+
+.tide-height-l {
+  width: 35vw;
+}
+
+.tide-save-head {
+  width: 20vw;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
