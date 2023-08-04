@@ -4,7 +4,7 @@ import { locations } from '../stationData';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const SearchSelect = ({}) => {
+export const SearchSelect = () => {
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10);
   const [searchLocation, setSearchLocation] = useState('');

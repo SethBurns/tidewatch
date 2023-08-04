@@ -14,7 +14,6 @@ function App() {
 
   const renderApp = () => {
     return (
-      <div>
         <Routes>
           <Route path="/" element={<SearchSelect />} />
           <Route
@@ -39,7 +38,6 @@ function App() {
             }
           />
         </Routes>
-      </div>
     );
   };
 
