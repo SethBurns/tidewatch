@@ -1,9 +1,12 @@
 # If you want to see the project deployed, you can go here:
 
+
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+To clone the script run `git clone git@github.com:SethBurns/tidewatch.git`
+Then run `cd tidewatch` or if you created a different folder put that folder name in.
 In the project directory, you can run:
 ### `npm i`
 then
@@ -27,6 +30,13 @@ My page is responsive across many sizes and I feel that most people could use my
 
 ## Challenges
 Error handling was a little confusing and I think I could refactor to handle it more efficiently.
+
+## Preview
+![Screen Shot 2023-08-04 at 8 00 04 PM](https://github.com/SethBurns/tidewatch/assets/123792434/e4689cbf-ecf7-4978-98dd-2ed9129125f2)
+__
+
+![Screen Recording 2023-08-04 at 7 54 05 PM](https://github.com/SethBurns/tidewatch/assets/123792434/2d9c48e8-9e87-4ac9-9d7c-2c432e87bf4b)
+
 
 App created by Seth Burns - [Github] (https://github.com/SethBurns)
 
