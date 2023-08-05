@@ -7,6 +7,12 @@
   justify-content: flex-start;
 }
 
+.search-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 ul {
   padding-inline-start: 0px;
 }
@@ -21,6 +27,7 @@ li {
   font-size: xx-large;
   height: 50px;
   margin: 10px;
+  padding: 0px;
 }
 
 .button-container {

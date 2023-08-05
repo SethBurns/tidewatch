@@ -36,6 +36,10 @@ table {
   cursor: pointer;
 }
 
+.trash:hover {
+  cursor: pointer;
+}
+
 .no-tides {
   color: rgb(148, 1, 1);
   -webkit-text-stroke-width: 2px;

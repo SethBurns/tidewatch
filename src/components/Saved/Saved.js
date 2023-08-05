@@ -5,8 +5,9 @@ import {
   extendTideType,
   convertDecimalToFeetAndInches,
 } from '../../util';
+import PropTypes from 'prop-types';
 
-export const Saved = ({ savedTides, setSavedTides }) => {
+const Saved = ({ savedTides, setSavedTides }) => {
   const handleDelete = (e, tidetime) => {
     e.preventDefault();
     setSavedTides(savedTides.filter((tide) => tide.tide.time !== tidetime));
@@ -27,7 +28,7 @@ export const Saved = ({ savedTides, setSavedTides }) => {
             handleDelete(e, tide.tide.time);
           }}
         >
-          <span role="img" aria-label="Delete Tide">
+          <span className="trash" role="img" aria-label="Delete Tide">
             🗑️
           </span>
         </td>
@@ -61,3 +62,16 @@ export const Saved = ({ savedTides, setSavedTides }) => {
     </main>
   );
 };
+
+Saved.propTypes = {
+  savedTides: PropTypes.arrayOf(
+    PropTypes.shape({
+      height: PropTypes.string,
+      type: PropTypes.string,
+      time: PropTypes.string,
+    })
+  ),
+  setSavedTides: PropTypes.func,
+};
+
+export { Saved };

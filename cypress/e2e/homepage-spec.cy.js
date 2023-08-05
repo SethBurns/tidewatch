@@ -38,4 +38,12 @@ describe('homepage search page spec', () => {
     cy.get('#dateInput').type('2023-08-10');
     cy.get('#dateInput').should('have.value', '2023-08-10');
   });
+  it('should show an error if a bad station url is entered', () => {
+    cy.intercept('GET', 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=*&end_date=*&station=*&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&application=DataAPI_Sample&format=json', {
+      statusCode: 400,
+      fixture: 'error'
+    })
+    cy.visit('http://localhost:3000/940574?date=2023-08-04')
+    cy.get('.App').find('h1').should('contain', 'Something went wrong when fetching the tide data.')
+  })
 });

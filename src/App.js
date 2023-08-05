@@ -14,30 +14,32 @@ function App() {
 
   const renderApp = () => {
     return (
-        <Routes>
-          <Route path="/" element={<SearchSelect />} />
-          <Route
-            path="/saved"
-            element={
-              <Saved savedTides={savedTides} setSavedTides={setSavedTides} />
-            }
-          />
-          <Route
-            path="/:station"
-            element={
-              error ? (
-                <p>{error}</p>
-              ) : (
-                <Location
-                  savedTides={savedTides}
-                  setSavedTides={setSavedTides}
-                  setError={setError}
-                  setServerDown={setServerDown}
-                />
-              )
-            }
-          />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<SearchSelect />} />
+        <Route
+          path="/saved"
+          element={
+            <Saved savedTides={savedTides} setSavedTides={setSavedTides} />
+          }
+        />
+        <Route
+          path="/:station"
+          element={
+            error ? (
+              <h1 className="error">{error}</h1>
+            ) : (
+              <Location
+                savedTides={savedTides}
+                setSavedTides={setSavedTides}
+                setError={setError}
+                error={error}
+                setServerDown={setServerDown}
+              />
+            )
+          }
+        />
+        <Route path="/*" element={<h1>{error}</h1>} />
+      </Routes>
     );
   };
 
@@ -56,7 +58,7 @@ function App() {
           <div className="saved-button"></div>
         </Link>
       </nav>
-      {serverDown ? <ServerDown /> : renderApp()}
+      {serverDown ? <ServerDown error={error} /> : renderApp()}
     </div>
   );
 }
