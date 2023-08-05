@@ -50,7 +50,8 @@ export const Location = ({
         resolve();
       }, 750);
     });
-
+    // This is to ensure the loading sign is seen for at least .75 seconds, but not more than it needs to be if
+    // the fetch promise is delivered earlier.
     Promise.all([
       p,
       fetchTides(startDate, endDate, station)
