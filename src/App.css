@@ -1,11 +1,16 @@
-.App {
-  text-align: center;
-  font-family: 'Prompt', sans-serif;
+body {
   background-image: url('./images/sunsetdiveflag.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  width: 100vw;
+  height: 100%;
 }
 
 h1 {
@@ -16,28 +21,25 @@ h1 {
 .navbar {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .search-button {
-  height: 50px;
-  width: 50px;
   background-image: url('./images/research.png');
-  background-size: contain;
-  background-position: center center;
-  background-color: transparent;
-  border-style: none;
-  margin-top: 10px;
 }
 
 .saved-button {
+  background-image: url('./images/favorited.png');
+}
+
+.search-button,
+.saved-button {
   height: 50px;
   width: 50px;
-  background-image: url('./images/favorited.png');
   background-size: contain;
   background-position: center center;
   background-color: transparent;
   border-style: none;
-  margin-top: 10px;
 }
 
 a {
@@ -55,10 +57,21 @@ h1,
   margin-right: 10px;
 }
 
-a:hover {
+.navbutton:hover {
   cursor: pointer;
   filter: invert(100);
 }
 
+@media (max-width: 650px) {
+  .pbutton {
+    display: none;
+  }
+  h1 {
+    font-size: 35px;
+  }
+}
 
-/* border-style: solid; */
+.error {
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: white;
+}

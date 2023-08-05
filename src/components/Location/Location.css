@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0px 20px;
+}
+
+.tide-table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 th {
   font-size: 40px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: white;
 }
 
 td {
@@ -28,15 +34,13 @@ tr:nth-child(even) {
   background-color: rgba(151, 169, 250, 0.668);
 }
 
-.tide-save {
+.tide-save-l {
   height: 45px;
   width: 45px;
-  background-color: transparent;
-  background-image: url('../../images/favorited.png');
-  border: none;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
+}
+
+.tide-save-l:hover {
+  filter: invert(100);
 }
 
 .saved-confirmation {
@@ -73,9 +77,6 @@ tr:nth-child(even) {
 }
 
 .center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   align-content: center;
 }
@@ -84,3 +85,22 @@ tr:nth-child(even) {
   display: none;
 }
 
+.tide-time-l {
+  width: 45vw;
+}
+
+.tide-height-l {
+  width: 35vw;
+}
+
+.tide-save-head {
+  width: 18vw;
+}
+
+.loading {
+  position: relative;
+  top: 300px;
+  color: brown;
+  -webkit-text-stroke: 3px;
+  -webkit-text-stroke-color: black;
+}

@@ -101,3 +101,14 @@ export function findNameByStation(station) {
   }
   return 'If you are going to type in your own custom URL, you better be sure you know what you are doing. Oh... I mean... ERROR! Station does not exist!';
 }
+
+export function cleanData(data) {
+    return data.predictions.map((tide) => {
+      return {
+        height: tide.v,
+        type: tide.type,
+        time: tide.t,
+      };
+    });
+  }
+
