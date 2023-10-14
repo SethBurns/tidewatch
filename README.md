@@ -25,11 +25,11 @@ You may also see any lint errors in the console.
 In this project, I wanted to deliver a quick and accurate way for Washington State based scuba divers and shell fish harvesters (and anyone else tide sensitive) to quickly see tides for their waterways and be able to save those tides for a quick view later. This app uses React, Router, Cypress, and PropTypes. It fetches data from the NOAA API. I wanted the app to be use-able by people who don't always use technology with ease.
 
 ## Wins
-I wrote in depth Cypress tests stubbing things successfully, and stubbing some fetches that appeared out of nowhere.
+I wrote in depth Cypress tests stubbing api calls successfully.
 My page is responsive across many sizes and I feel that most people could use my app with ease.
 
 ## Challenges
-Error handling was a little confusing and I think I could refactor to handle it more efficiently.
+Error handling was a little confusing at first, and I can refactor to handle it more efficiently.
 
 ## Preview
 ![Screen Shot 2023-08-04 at 8 00 04 PM](https://github.com/SethBurns/tidewatch/assets/123792434/e4689cbf-ecf7-4978-98dd-2ed9129125f2)
